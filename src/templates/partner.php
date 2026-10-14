@@ -55,7 +55,7 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
           <p class="eyebrow">Für Fahrlehrerinnen und Fahrlehrer</p>
         </div>
         <h1 id="hero-title">Gemeinsam stark: Werde jetzt Partner</h1>
-        <p class="lead">Mit der Marke "VKU-Basel" bietet reinis Fahrschule dir die Möglichkeit, ohne Risiko und ohne eigenes Theorie-Lokal künftig attraktive Angebote aus VKU und Fahrstunden für deine Schülerinnen und Schüler anzubieten.<br>Da reinis Fahrschule in den Hintergrund tritt und künftig keine Fahrstunden mehr anbietet, erhältst du als Partner von VKU-Basel exklusiv die Möglichkeit neue Kundinnen und Kunden für dich zu gewinnen.</p>
+        <p class="lead">Mit der Marke «VKU-Basel» bietet reinis Fahrschule dir die Möglichkeit, ohne Risiko und ohne eigenes Theorie-Lokal künftig attraktive Angebote aus VKU und Fahrstunden für deine Schülerinnen und Schüler anzubieten.<br>Da reinis Fahrschule in den Hintergrund tritt und künftig keine Fahrstunden mehr anbietet, erhältst du als Partner von VKU-Basel exklusiv die Möglichkeit, neue Kundinnen und Kunden für dich zu gewinnen.</p>
       </div>
     </section>
 
@@ -114,7 +114,7 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
 <?php else: ?>
                 <li>Du bekommst eine persönliche Rückmeldung per E-Mail oder telefonisch.</li>
 <?php endif; ?>
-                <li>Im persönlichen Gespräch klären wir, alle Details und welche Partnerstufe für dich passt.</li>
+                <li>Im persönlichen Gespräch klären wir alle Details und welche Partnerstufe für dich passt.</li>
               </ol>
             </div>
             <p class="danke-fragen">Fragen vorab? Schreib an <a href="mailto:info@reinis-fahrschule.ch">info@reinis-fahrschule.ch</a>.</p>

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # HTTP-Tests für /partner/export gegen die lokale DDEV-Umgebung.
 # Voraussetzung: scripts/setup-local.sh wurde ausgeführt.
+# Liest nur, darf daher auch gegen Produktion laufen: BASE=https://vku-basel.ch bash tests/http_export_test.sh
 set -uo pipefail
 
 BASE="${BASE:-https://vku-basel.ddev.site}"
@@ -25,6 +26,7 @@ curl -sk -u "$EXPORT_USER:$EXPORT_PASSWORD" -D "$TMP/headers" -o "$TMP/export.xl
 check "Mit Passwort 200" 'head -1 "$TMP/headers" | grep -q " 200"'
 check "Content-Type XLSX" 'grep -qi "^content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" "$TMP/headers"'
 check "Dateiname mit heutigem Datum" 'grep -qi "filename=\"anmeldungen-$(date +%Y-%m-%d).xlsx\"" "$TMP/headers"'
+check "Kein WWW-Authenticate bei Erfolg (sonst fragt Safari erneut)" '! grep -qi "^www-authenticate" "$TMP/headers"'
 check "Kein Caching" 'grep -qi "^cache-control: no-store" "$TMP/headers"'
 check "noindex-Header" 'grep -qi "^x-robots-tag: noindex" "$TMP/headers"'
 check "Datei ist ZIP" '[ "$(head -c 2 "$TMP/export.xlsx")" = "PK" ]'
