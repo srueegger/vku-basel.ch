@@ -18,9 +18,13 @@ function guard_secret(string $file): string
     if (!is_dir($dir) && !mkdir($dir, 0770, true) && !is_dir($dir)) {
         throw new RuntimeException("Datenordner kann nicht angelegt werden: $dir");
     }
+    // Über eine Temp-Datei schreiben, damit parallele Erstaufrufe keine halbe Datei lesen.
     $secret = bin2hex(random_bytes(32));
-    file_put_contents($file, $secret, LOCK_EX);
-    chmod($file, 0600);
+    $tmp = $file . '.' . bin2hex(random_bytes(4)) . '.tmp';
+    if (file_put_contents($tmp, $secret) !== strlen($secret) || !chmod($tmp, 0600) || !rename($tmp, $file)) {
+        @unlink($tmp);
+        throw new RuntimeException("Formular-secret kann nicht gespeichert werden: $file");
+    }
 
     return $secret;
 }

@@ -48,3 +48,16 @@ test('guard: CSRF-Token', function () {
     $_SESSION = [];
     assert_same(false, guard_csrf_ok($token));
 });
+
+test('guard: Secret-Datei nicht schreibbar → Exception statt stillem Fehler', function () {
+    $dir = sys_get_temp_dir() . '/vku-test-' . bin2hex(random_bytes(4));
+    mkdir($dir, 0500);
+    try {
+        @guard_secret($dir . '/secret.key');
+        assert_true(false, 'keine Exception');
+    } catch (RuntimeException $e) {
+        assert_true(str_contains($e->getMessage(), 'secret'), $e->getMessage());
+    } finally {
+        chmod($dir, 0700);
+    }
+});

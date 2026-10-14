@@ -86,6 +86,16 @@ post fast --data-urlencode "csrf=$CSRF" --data-urlencode "ts=$TS" --data-urlenco
 check "Zu schnelles Absenden leitet um" '[ "$(cat $TMP/fast.code)" = 303 ]'
 check "Zu schnelles Absenden speichert nichts" '[ "$(count)" = "$before" ]'
 
+# 7b. Nach Fehler sofort erneut senden → wird gespeichert (nicht als Bot verworfen)
+before=$(count)
+load_form; sleep 3
+post stale --data-urlencode "csrf=abgelaufen" --data-urlencode "ts=$TS" --data-urlencode "schule=Zweiter Versuch" "${valid[@]}"
+CSRF=$(sed -n 's/.*name="csrf" value="\([^"]*\)".*/\1/p' "$TMP/stale.html" | head -1)
+TS=$(sed -n 's/.*name="ts" value="\([^"]*\)".*/\1/p' "$TMP/stale.html" | head -1)
+post retry --data-urlencode "csrf=$CSRF" --data-urlencode "ts=$TS" --data-urlencode "schule=Zweiter Versuch" "${valid[@]}"
+check "Sofortiges erneutes Senden nach Fehler leitet auf Danke um" '[ "$(cat $TMP/retry.code)" = 303 ]'
+check "Sofortiges erneutes Senden nach Fehler wird gespeichert" '[ "$(count)" = "$((before + 1))" ]'
+
 # 8. Danke ohne Session
 curl -sk "$BASE/partner/?danke" -o "$TMP/danke2.html"
 check "Danke ohne Session zeigt neutralen Satz" 'grep -q "Du bekommst eine persönliche Rückmeldung per E-Mail oder telefonisch." "$TMP/danke2.html"'

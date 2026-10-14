@@ -69,6 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $csrfToken = guard_csrf_token();
-$tsToken = guard_timestamp_issue($secret, time());
+// Nach einem Fehler den ursprünglichen Ladezeitpunkt behalten, sonst gilt sofortiges
+// erneutes Absenden als zu schnell und würde verworfen.
+$postedTs = is_string($_POST['ts'] ?? null) ? $_POST['ts'] : '';
+$tsToken = guard_timestamp_ok($postedTs, $secret, time(), 0)
+    ? $postedTs
+    : guard_timestamp_issue($secret, time());
 
 require $src . '/templates/partner.php';
