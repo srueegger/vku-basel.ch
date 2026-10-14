@@ -3,7 +3,8 @@
 
 declare(strict_types=1);
 
-$src = is_dir(__DIR__ . '/../../../src') ? __DIR__ . '/../../../src' : getenv('HOME') . '/vku-basel-app/src';
+// Lokal liegt src/ im Projekt, auf dem Server in ~/vku-basel-app/src (~ = vier Ebenen über diesem Ordner).
+$src = is_dir(__DIR__ . '/../../../src') ? __DIR__ . '/../../../src' : dirname(__DIR__, 4) . '/vku-basel-app/src';
 require $src . '/bootstrap.php';
 
 $rows = array_map(static fn (array $a): array => [
