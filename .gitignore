@@ -3,3 +3,4 @@
 /data/
 public/partner/export/.htaccess
 .DS_Store
+/docs/

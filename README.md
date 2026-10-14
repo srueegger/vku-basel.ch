@@ -4,8 +4,6 @@
 passwortgeschütztem Excel-Export unter `/partner/export/`. `vku-basel.ch/` ist
 bewusst eine leere Seite. Reines PHP 8.3, ohne Framework und ohne Composer.
 
-Spezifikation: `docs/superpowers/specs/2026-10-15-partnerseite-design.md`
-
 ## Lokal
 
 ```bash
