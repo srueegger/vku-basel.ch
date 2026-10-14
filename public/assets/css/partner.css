@@ -1,0 +1,184 @@
+/* VKU-Basel Partnerseite – Mobile zuerst, ab 768px Desktop (Werte aus der Designvorlage). */
+
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/noto-sans-400.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/noto-sans-600.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/noto-sans-700.woff2) format('woff2'); }
+
+:root {
+  --blau: #0B4F8A;
+  --blau-dunkel: #083C6B;
+  --text: #12212F;
+  --text-2: #3F4D5B;
+  --hint: #4A5866;
+  --rand: #E3E8EE;
+  --rand-karte: #DCE3EA;
+  --feld: #6B7785;
+  --flaeche: #F4F7FA;
+  --fehler: #B3121D;
+  --gutter: clamp(20px, 4vw, 40px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: #FFFFFF; color: var(--text); font-family: 'Noto Sans', 'Frutiger', 'Segoe UI', sans-serif; }
+img { display: block; }
+a { color: var(--blau); }
+a:hover { color: var(--blau-dunkel); }
+*:focus-visible { outline: 3px solid var(--blau); outline-offset: 3px; }
+h1, h2, h3, p { margin: 0; }
+
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+.wrap { max-width: 1120px; width: 100%; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--rand); }
+.site-header .wrap { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 21px; line-height: 1; font-weight: 700; color: var(--blau); letter-spacing: 0.02em; }
+.brand:hover { color: var(--blau); }
+.ghost-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 2px solid var(--blau); border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; color: var(--blau); }
+.ghost-btn:hover { background: #EEF3F8; color: var(--blau); }
+.ghost-btn .lang { display: none; }
+
+/* Hero */
+.hero { padding-top: clamp(44px, 8vw, 104px); padding-bottom: clamp(48px, 7vw, 88px); }
+.hero-inner { max-width: 760px; display: flex; flex-direction: column; gap: 20px; }
+.hero-kicker { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.hero-logo { width: 139px; height: 44px; }
+.eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blau); }
+.hero h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.15; font-weight: 700; letter-spacing: -0.01em; }
+.lead { max-width: 620px; font-size: 18px; line-height: 1.55; color: var(--text-2); }
+
+.leitlinie { height: 20px; border-radius: 2px; background-image: url(../img/leitlinie.png); background-repeat: repeat-x; background-position: center; background-size: auto 100%; }
+
+/* Vorteile */
+.vorteile { padding-top: clamp(44px, 6vw, 80px); padding-bottom: clamp(48px, 7vw, 96px); display: flex; flex-direction: column; gap: 28px; }
+.vorteile h2 { font-size: clamp(24px, 2.4vw, 30px); line-height: 1.25; font-weight: 700; }
+.vorteile-liste { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 28px; }
+.vorteil { display: flex; gap: 16px; align-items: flex-start; }
+.vorteil img { flex: none; width: 52px; height: 52px; }
+.vorteil-text { display: flex; flex-direction: column; gap: 6px; }
+.vorteil h3 { font-size: 18px; line-height: 1.3; font-weight: 700; }
+.vorteil p { font-size: 16px; line-height: 1.55; color: var(--text-2); }
+.stufen { max-width: 760px; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: var(--flaeche); border-radius: 8px; }
+.stufen-titel { font-size: 17px; line-height: 1.35; font-weight: 700; }
+.stufen-text { font-size: 16px; line-height: 1.55; color: var(--text-2); }
+
+/* Anmeldung */
+.anmeldung { background: var(--flaeche); }
+.anmeldung .wrap { padding-top: 48px; padding-bottom: 56px; display: flex; flex-wrap: wrap; gap: 24px 72px; align-items: flex-start; }
+.anmeldung-intro { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.anmeldung-intro h2 { font-size: clamp(26px, 2.8vw, 36px); line-height: 1.2; font-weight: 700; }
+.anmeldung-intro p { font-size: 17px; line-height: 1.55; color: var(--text-2); }
+.anmeldung-karte { flex: 1.3 1 440px; min-width: 0; max-width: 600px; display: flex; flex-direction: column; gap: 24px; }
+.pflicht { font-size: 15px; line-height: 1.5; color: var(--text-2); }
+
+/* Mobile: Danke-Ansicht ersetzt den ganzen Anmeldebereich und steht in einer weissen Karte */
+.anmeldung.is-success .anmeldung-intro { display: none; }
+.anmeldung.is-success .anmeldung-karte { padding: 28px 22px 30px; background: #FFFFFF; border: 1px solid var(--rand-karte); border-radius: 10px; }
+
+.alert { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; background: #FFFFFF; border: 2px solid var(--fehler); border-radius: 8px; }
+.alert:focus { outline: none; }
+.alert:focus-visible { outline: 3px solid var(--fehler); outline-offset: 3px; }
+.alert-titel { font-size: 17px; font-weight: 700; color: var(--fehler); }
+.alert ul { margin: 0; padding: 0 0 0 20px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.45; }
+.alert a { color: var(--fehler); text-underline-offset: 3px; }
+.alert[hidden] { display: none; }
+
+.form { display: flex; flex-direction: column; gap: 22px; margin: 0; }
+.feld { display: flex; flex-direction: column; gap: 8px; }
+.feld label { font-size: 16px; font-weight: 600; line-height: 1.3; }
+.feld-hint { font-size: 15px; line-height: 1.4; color: var(--hint); }
+.inp { width: 100%; height: 56px; padding: 0 14px; font-family: inherit; font-size: 18px; color: var(--text); background: #FFFFFF; border: 2px solid var(--feld); border-radius: 6px; transition: border-color .15s ease; }
+.inp:hover { border-color: var(--text); }
+.inp:focus-visible { border-color: var(--blau); outline: 3px solid var(--blau); outline-offset: 2px; }
+.inp.is-error { border-color: var(--fehler); background: #FFF7F7; }
+.inp.is-error:focus-visible { outline-color: var(--fehler); }
+
+.feld-fehler { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; line-height: 1.4; font-weight: 600; color: var(--fehler); }
+.feld-fehler svg { flex: none; margin-top: 1px; }
+.feld-fehler[hidden] { display: none; }
+
+.consent { display: flex; flex-direction: column; gap: 8px; }
+.consent-zeile { display: flex; gap: 12px; align-items: flex-start; padding: 6px 0; }
+.consent-zeile input { flex: none; width: 26px; height: 26px; margin: 0; accent-color: var(--blau); cursor: pointer; }
+.consent-zeile label { font-size: 15px; line-height: 1.5; cursor: pointer; }
+
+.ww-btn { display: block; width: 100%; padding: 0; margin: 4px 0 0; border: 0; background: none; cursor: pointer; font-family: inherit; }
+.ww-fill { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; padding: 0 44px 0 22px; background: var(--blau); color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.01em; clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%); transition: background .15s ease; }
+.ww-btn:hover .ww-fill { background: var(--blau-dunkel); }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Danke */
+.danke { display: flex; flex-direction: column; gap: 18px; }
+.danke-icon { width: 60px; height: 60px; }
+.danke h2 { font-size: 26px; line-height: 1.2; font-weight: 700; }
+.danke-lead { font-size: 17px; line-height: 1.55; color: var(--text-2); }
+.danke-weiter { display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: var(--flaeche); border-radius: 8px; }
+.danke-weiter h3 { font-size: 17px; line-height: 1.3; font-weight: 700; }
+.danke-weiter ol { margin: 0; padding: 0 0 0 20px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.55; color: var(--text-2); }
+.danke-weiter strong { color: var(--text); font-weight: 600; }
+.danke-fragen { font-size: 16px; line-height: 1.55; color: var(--text-2); }
+.danke-fragen a { text-underline-offset: 3px; }
+
+/* Footer */
+.foot { margin-top: auto; background: var(--blau); color: #FFFFFF; }
+.foot .wrap { padding-top: 36px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 18px; }
+.foot-brand { display: contents; }
+.foot-name { font-size: 19px; line-height: 1; font-weight: 700; letter-spacing: 0.02em; }
+.foot-copy { font-size: 14px; color: #DCE7F2; order: 2; }
+.foot address { font-style: normal; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; order: 1; }
+.foot a { color: #FFFFFF; text-underline-offset: 3px; padding: 6px 0; align-self: flex-start; }
+.foot a:hover { color: #DCE7F2; }
+.foot *:focus-visible { outline-color: #FFFFFF; }
+
+@media (min-width: 768px) {
+  .site-header .wrap { height: 76px; }
+  .brand { font-size: 24px; }
+  .ghost-btn { min-height: 46px; padding: 0 20px; }
+  .ghost-btn .kurz { display: none; }
+  .ghost-btn .lang { display: inline; }
+
+  .hero-inner { gap: 26px; }
+  .hero-kicker { gap: 16px; }
+  .hero-logo { width: 164px; height: 52px; }
+  .eyebrow { font-size: 16px; }
+  .hero h1 { line-height: 1.08; letter-spacing: -0.015em; }
+  .lead { font-size: clamp(18px, 1.6vw, 20px); line-height: 1.6; }
+  .leitlinie { height: 24px; }
+
+  .vorteile { gap: 40px; }
+  .vorteile-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px 48px; }
+  .vorteil { flex-direction: column; gap: 18px; }
+  .vorteil img { width: 60px; height: 60px; }
+  .vorteil-text { gap: 8px; }
+  .vorteil h3 { font-size: 20px; }
+  .vorteil p { font-size: 17px; line-height: 1.6; }
+  .stufen { padding: 22px 26px; }
+  .stufen-titel { font-size: 18px; }
+  .stufen-text { font-size: 17px; line-height: 1.6; }
+
+  .anmeldung .wrap { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); gap: 48px 72px; }
+  .anmeldung-intro { gap: 18px; }
+  .anmeldung-intro h2 { line-height: 1.15; }
+  .anmeldung-intro p { font-size: 18px; line-height: 1.6; }
+  .anmeldung-karte,
+  .anmeldung.is-success .anmeldung-karte { padding: clamp(24px, 3vw, 40px); background: #FFFFFF; border: 1px solid var(--rand-karte); border-radius: 10px; }
+  .anmeldung.is-success .anmeldung-intro { display: flex; }
+  .ww-btn { max-width: 380px; }
+
+  .danke-icon { width: 64px; height: 64px; }
+  .danke h2 { font-size: 30px; }
+  .danke-lead { font-size: 18px; line-height: 1.6; }
+  .danke-weiter { padding: 20px 24px; }
+  .danke-weiter h3 { font-size: 18px; }
+  .danke-weiter ol { padding-left: 22px; font-size: 17px; }
+  .danke-fragen { font-size: 17px; }
+
+  .foot .wrap { padding-top: 40px; padding-bottom: 40px; flex-direction: row; flex-wrap: wrap; gap: 24px 48px; align-items: flex-start; justify-content: space-between; }
+  .foot-brand { display: flex; flex-direction: column; gap: 14px; }
+  .foot-copy, .foot address { order: 0; }
+  .foot-name { font-size: 20px; }
+  .foot address { gap: 4px; }
+}
