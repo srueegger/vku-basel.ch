@@ -1,0 +1,6 @@
+name: vku-basel
+type: php
+docroot: public
+php_version: "8.3"
+webserver_type: apache-fpm
+omit_containers: [db]
