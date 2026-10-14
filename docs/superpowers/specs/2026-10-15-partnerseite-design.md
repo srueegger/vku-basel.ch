@@ -35,7 +35,7 @@ vku-basel.ch/
 │   ├── assets/              CSS, JS, Noto Sans (woff2), Logo, Icons, Leitlinie
 │   └── partner/
 │       ├── index.php        Seite + Formular (GET anzeigen, POST speichern)
-│       └── export-b5f7ae8af658b752/
+│       └── export/
 │           ├── .htaccess    Basic Auth
 │           └── index.php    liefert anmeldungen-JJJJ-MM-TT.xlsx
 ├── src/                     nicht öffentlich
@@ -129,7 +129,7 @@ Prepared Statements, WAL-Modus, `busy_timeout`.
 
 ## Excel-Export
 
-- URL: `/partner/export-b5f7ae8af658b752/`
+- URL: `/partner/export/`
 - Schutz: Basic Auth über `.htaccess`, Benutzer `vku`. Das Passwort wurde vom
   Auftraggeber festgelegt und steht nur in der lokalen, nicht versionierten
   `.env.local` sowie gehasht in der `.htpasswd` (ausserhalb des Webroots).

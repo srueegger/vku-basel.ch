@@ -1,5 +1,5 @@
 .env.local
 .htpasswd
 /data/
-public/partner/export-*/.htaccess
+public/partner/export/.htaccess
 .DS_Store
