@@ -186,7 +186,7 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
     <div class="wrap">
       <div class="foot-brand">
         <span class="foot-name">VKU-Basel</span>
-        <p class="foot-copy">© 2026 VKU-Basel · Ein Angebot der reinis Fahrschule</p>
+        <p class="foot-copy">© 2026 VKU-Basel · Ein Angebot von reinis Fahrschule</p>
       </div>
       <address>
         <span>reinis Fahrschule<br>Burgfelderstrasse 11<br>4055 Basel</span>
