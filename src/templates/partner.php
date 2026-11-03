@@ -86,10 +86,6 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
           </div>
         </li>
       </ul>
-      <div class="stufen">
-        <p class="stufen-titel">Drei Partnerstufen: Platin, Gold und Silber</p>
-        <p class="stufen-text">Die Plätze sind beschränkt: 1 Platz Platin, 2 Plätze Gold, 3 Plätze Silber.<br><br>Gerne bespreche ich mit dir die Leistungen und Konditionen in einem persönlichen Gespräch.</p>
-      </div>
     </section>
 
     <section id="anmeldung" class="anmeldung<?= $view === 'success' ? ' is-success' : '' ?>" aria-labelledby="<?= $view === 'success' ? 'danke-title' : 'form-title' ?>">
