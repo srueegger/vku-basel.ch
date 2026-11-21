@@ -1,0 +1,51 @@
+body{margin:0;font-family:'Hind',Arial,sans-serif;color:#000;font-size:18px;line-height:1.45}
+a{color:#0563C1}a:hover{color:#033f80}
+.page{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#F5F7FC 30%,#B6C8E8 100%)}
+.hdr-in{max-width:1160px;margin:0 auto;padding:14px 24px 8px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 28px}
+.brand{font-weight:700;font-size:24px;color:#1F3864;text-decoration:none}.brand:hover{color:#1F3864}
+.nav{display:flex;flex-wrap:wrap;gap:2px 20px}
+.nav a{color:#1F3864;text-decoration:none;font-weight:600;font-size:16px;padding:8px 0 4px;border-bottom:3px solid transparent}
+.nav a:hover,.nav a.act{border-bottom-color:#1F3864;color:#1F3864}
+.tag{color:#1F3864;font-size:16px;margin-left:auto}
+.burger{display:none;align-items:center;justify-content:center;width:48px;height:48px;border:2px solid #1F3864;border-radius:8px;background:#fff;cursor:pointer;margin-left:auto;padding:0}
+@media (max-width:760px){.burger{display:inline-flex}.tag{display:none}.nav{display:none;width:100%;flex-direction:column;gap:0;order:3}.nav.open{display:flex}.nav a{padding:14px 4px 10px;border-bottom:1px solid rgba(31,56,100,.2);font-size:18px}}
+.strasse{height:16px;background:url(../img/strasse.png) left center/auto 100% repeat-x}
+.ww{display:inline-flex;align-items:center;box-sizing:border-box;height:56px;border-style:solid;border-width:4px 50px 4px 4px;border-image:url(../img/wegweiser-gruen.png) 10 135 10 10 fill stretch;padding:5px 8px 0 14px;font-family:inherit;font-size:22px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap;cursor:pointer;background:none}
+.ww:hover{filter:brightness(.92);color:#fff}
+.ww-blau{border-image-source:url(../img/wegweiser-blau.png)}
+.ww-weiss{border-image-source:url(../img/wegweiser-weiss.png);color:#000}
+.ww-orange{border-image-source:url(../img/wegweiser-orange.png);color:#000;font-weight:700}
+.ww-weiss:hover,.ww-orange:hover{color:#000}
+.ww-links{border-image-source:url(../img/wegweiser-gruen-links.png);border-width:4px 4px 4px 50px;border-image-slice:10 10 10 135 fill;padding:5px 14px 0 8px}
+.uk{display:inline-flex;flex-direction:column;align-items:center;gap:6px;min-width:300px;max-width:100%;padding:10px 36px 6px;box-sizing:border-box;border-style:solid;font-weight:700;font-size:32px;line-height:1.15;margin:0;text-align:center}
+.uk img{width:60px;height:auto}
+.uk-blau{border-width:9px;border-image:url(../img/ueberkopf-blau.png) 28 fill stretch;color:#fff}
+.stapel .ww{width:100%;max-width:360px}
+.signbtn{background:none;border:0;padding:0;cursor:pointer;display:inline-flex}
+.rot{color:#FF0000}
+.strike{text-decoration:line-through}
+.foot{color:#1F3864;font-size:15px}
+header{position:sticky;top:0;z-index:50;background:#F5F7FC;box-shadow:0 2px 8px rgba(31,56,100,.15)}
+.page.theo header{background:#fff}
+
+.burger{display:none;width:56px;height:56px;box-sizing:border-box;padding:0;margin-left:auto;border-style:solid;border-width:6px;border-image:url(../img/ueberkopf-blau.png) 28 fill stretch;background:none;border-radius:0;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#fff;font-family:inherit;font-size:11px;font-weight:700;line-height:1;cursor:pointer}
+.burger img{width:30px;height:auto;display:block;transition:transform .3s}
+.burger.zu img{transform:rotate(180deg)}
+@media (max-width:760px){.burger{display:inline-flex}.nav.open{display:none}}
+.mov{position:fixed;inset:0;z-index:100;background:#1F3864;transform:translateY(-100%);visibility:hidden;transition:transform .35s cubic-bezier(.3,.9,.3,1),visibility 0s .35s;overflow-y:auto;overflow-x:hidden}
+.mov.open{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.3,.9,.3,1)}
+.mov-in{position:relative;isolation:isolate;min-height:100%;margin:0;padding:0 24px 26px 16px;box-sizing:border-box;display:flex;flex-direction:column}
+.mov .burger{display:inline-flex}
+.mov-top{position:fixed;top:14px;right:24px;z-index:2;display:flex}
+.pfosten{position:absolute;right:47px;top:70px;bottom:0;width:10px;background:linear-gradient(90deg,#8d9196,#d6d9dc 45%,#8d9196);z-index:0}
+.stack{position:relative;z-index:1;align-self:flex-end;width:292px;max-width:100%;display:flex;flex-direction:column;gap:14px;margin-top:100px}
+.mw{display:flex;align-items:center;justify-content:flex-end;box-sizing:border-box;height:58px;border-style:solid;border-width:4px 4px 4px 48px;border-image:url(../img/wegweiser-gruen-links.png) 10 10 10 135 fill stretch;padding:5px 16px 0 4px;font-family:inherit;font-size:21px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap;background:none}
+.mw:hover{color:#fff;filter:brightness(.92)}
+.mw-blau{border-image-source:url(../img/wegweiser-blau-links.png)}
+.mw-weiss{border-image-source:url(../img/wegweiser-weiss-links.png);color:#000}
+.mw-orange{border-image-source:url(../img/wegweiser-orange-links.png);color:#000;font-weight:700}
+.mw-grau{border-image:url(../img/wegweiser-grau-links.png) 10 10 10 175 fill stretch;border-width:4px 4px 4px 74px;color:#000;font-weight:700}
+.mw-weiss:hover,.mw-orange:hover,.mw-grau:hover{color:#000}
+.mov .mw{transform:translateX(120%);transition:transform .45s cubic-bezier(.2,1.25,.4,1)}
+.mov.open .mw{transform:none}
+.mw.act{outline:3px dashed #FFC000;outline-offset:4px}

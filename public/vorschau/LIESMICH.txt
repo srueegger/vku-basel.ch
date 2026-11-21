@@ -1,0 +1,30 @@
+VKU-Basel Prototyp (statisches HTML)
+=====================================
+
+Stand: Export aus dem Claude Design Canvas «VKU-Basel Prototyp».
+
+Inhalt
+- index.html                 Startseite
+- vku-kursdaten.html         VKU-Kursdaten
+- theorie-kursdaten.html     Theorievorbereitung Kursdaten
+- buchung-vku.html           Buchung VKU (4 Schritte)
+- buchung-theorie.html       Buchung Theorievorbereitung
+- meine-buchung.html         Meine Buchung und Nachholen
+- kombi-angebote.html        Kombi-Angebote und Partner
+- gutscheine.html            Gutscheine
+- faq.html                   FAQ
+- faq-variante-strecke.html  FAQ Variante Strecke
+- kontakt.html               Kontakt
+- start-variante-a.html      Startseite Variante A
+- start-variante-b.html      Startseite Variante B
+
+- assets/img   Verkehrszeichen, Wegweiser, Fotos
+- assets/css   ein Stylesheet pro Seite
+- assets/js    dc-lite.js (Renderer) und ein Skript pro Seite mit den Prototyp-Daten
+
+Hinweise
+- Einfach den Ordner auf den Webserver kopieren, kein Build nötig.
+- Schrift Hind kommt von Google Fonts (Internetverbindung nötig).
+- Alle Daten (Kurse, Preise, Partner) sind Beispieldaten im jeweiligen JS.
+- Formulare senden nichts ab, Zahlungen sind nur simuliert.
+- Ohne JavaScript wird nichts angezeigt (Prototyp).

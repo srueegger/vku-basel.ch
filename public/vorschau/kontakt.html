@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKU-Basel Kontakt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/kontakt.css">
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-tpl">
+<div class="page">
+<header>
+<div class="hdr-in">
+<a class="brand" href="index.html">VKU-Basel</a>
+<button type="button" class="burger" aria-label="Menü öffnen" aria-controls="hauptnav" aria-expanded="{{menuExp}}" onClick="{{toggleMenu}}"><img src="assets/img/pfeil-blau.png" alt=""></button>
+<nav class="{{navCls}}" id="hauptnav" aria-label="Hauptnavigation">
+<a href="vku-kursdaten.html">VKU-Kursdaten</a>
+<a href="theorie-kursdaten.html">Theorie</a>
+<a href="kombi-angebote.html">Kombi-Angebote</a>
+<a href="gutscheine.html">Gutscheine</a>
+<a href="faq.html">FAQ</a>
+<a class="act" href="kontakt.html">Kontakt</a>
+</nav>
+<span class="tag">Theorie- und VKU-Kurse</span>
+</div>
+<div class="strasse" aria-hidden="true"></div>
+</header>
+<nav class="{{ovCls}}" aria-label="Hauptmenü Handy" aria-hidden="{{ovHidden}}">
+<div class="mov-in">
+<span class="pfosten" aria-hidden="true"></span>
+<div class="mov-top"><button type="button" class="burger zu" onClick="{{toggleMenu}}" aria-label="Menü schliessen"><img src="assets/img/pfeil-blau.png" alt=""></button></div>
+<div class="stack">
+<a class="mw" style="transition-delay: 60ms;" href="vku-kursdaten.html">VKU-Kursdaten</a>
+<a class="mw mw-blau" style="transition-delay: 110ms;" href="kombi-angebote.html">Kombi-Angebote</a>
+<a class="mw mw-weiss" style="transition-delay: 160ms;" href="theorie-kursdaten.html">Theorie</a>
+<a class="mw mw-orange" style="transition-delay: 210ms;" href="gutscheine.html">Gutscheine</a>
+<a class="mw mw-weiss" style="transition-delay: 260ms;" href="faq.html">FAQ</a>
+<a class="mw mw-weiss act" style="transition-delay: 310ms;" href="kontakt.html">Kontakt</a>
+<a class="mw mw-grau" style="transition-delay: 380ms; margin-top: 18px;" href="#">reinis Fahrschule</a>
+</div>
+<div style="position: relative; z-index: 1; margin-top: auto; padding-top: 40px; display: flex; gap: 14px; align-items: center; color: #fff;">
+<img src="assets/img/signal-telefon.png" alt="" style="width: 40px; height: auto;">
+<div style="display: flex; flex-direction: column; font-size: 16px; line-height: 1.3;">
+<a href="tel:+41796386138" style="color: #fff; font-weight: 700;">+41 79 638 61 38</a>
+<span>Burgfelderstrasse 11, 4055 Basel</span>
+</div>
+</div>
+</div>
+</nav>
+
+<main style="flex-grow: 1; max-width: 1160px; width: 100%; margin: 0 auto; padding: 36px 24px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; justify-content: center;">
+<h1 class="uk uk-weiss">Kontaktiere uns zu …<img src="assets/img/pfeil-weiss.png" alt=""></h1>
+</div>
+
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<section class="box" style="align-items: center; text-align: center; padding: 36px 22px;">
+<img src="assets/img/vk2-65b.png" alt="" style="width: 80px; height: 80px;">
+<h2 style="margin: 0; font-size: 28px;">{{sentTitle}}</h2>
+<p style="margin: 0;">{{sentText}}</p>
+<a href="index.html">Zur Startseite</a>
+</section>
+</sc-if>
+
+<sc-if value="{{form}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start;">
+<div class="stapel" style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start;" aria-label="Thema">
+<sc-for list="{{topics}}" as="t" hint-placeholder-count="5">
+<button type="button" class="{{t.cls}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+<div style="margin-top: 14px; display: flex; gap: 16px; align-items: center;">
+<img src="assets/img/signal-telefon.png" alt="Signal Telefon" style="width: 64px; height: auto;">
+<div style="display: flex; flex-direction: column; font-size: 17px; font-weight: 700;">
+<a href="tel:+41796386138">+41 79 638 61 38</a>
+<a href="mailto:info@reinis-fahrschule.ch">info@reinis-fahrschule.ch</a>
+<span>Burgfelderstrasse 11, 4055 Basel</span>
+</div>
+</div>
+</div>
+
+<section class="box" style="flex: 2 1 480px;">
+<h2 style="margin: 0; font-size: 22px;">{{topicTitle}}</h2>
+<p style="margin: 0; font-size: 15px;">{{fieldHint}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px;">
+<label class="f">{{nameLabel}}<input type="text" autocomplete="name" required="{{req}}"></label>
+<label class="f">{{mailLabel}}<input type="email" autocomplete="email" required="{{req}}"></label>
+<label class="f">{{telLabel}}<input type="tel" autocomplete="tel"></label>
+</div>
+<sc-if value="{{isWish}}" hint-placeholder-val="{{true}}">
+<fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+<legend style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">An welchen Tagen passt dir ein VKU?</legend>
+<p style="margin: 0; font-size: 15px; padding: 10px 12px; border-left: 4px solid #000; background: #f4f6f9;">Deine Wunschdaten helfen bei der Planung künftiger Kurse. Eine Garantie, dass ein Kurs genau zu diesen Zeiten stattfindet, kann ich dir leider nicht geben. Aktuelle Kurse findest du in den <a href="vku-kursdaten.html">Kursdaten</a>.</p>
+<div class="days">
+<label class="day"><input type="checkbox">Mo</label>
+<label class="day"><input type="checkbox">Di</label>
+<label class="day"><input type="checkbox">Mi</label>
+<label class="day"><input type="checkbox">Do</label>
+<label class="day"><input type="checkbox">Fr</label>
+<label class="day"><input type="checkbox">Sa</label>
+<label class="day"><input type="checkbox">So</label>
+</div>
+<label class="f" style="max-width: 320px;">Tageszeit<select><option>Nachmittag</option><option>Abend</option><option>egal</option></select></label>
+</fieldset>
+</sc-if>
+<label class="f">Nachricht<textarea rows="5"></textarea></label>
+<div><button type="button" class="ww" onClick="{{send}}">Nachricht senden</button></div>
+</section>
+</div>
+</sc-if>
+
+<div style="display: flex; justify-content: center;">
+<a href="index.html" aria-label="Zurück" style="display: inline-flex;"><img src="assets/img/vk2-33-zurueck.png" alt="" style="width: 64px; height: 64px;"></a>
+</div>
+</main>
+
+<footer class="foot">
+<div style="max-width: 1160px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-top: 1px solid rgba(31,56,100,0.3);">
+<span style="flex: 1 1 320px;">VKU-Basel · ein Angebot der reinis Fahrschule · Burgfelderstrasse 11, 4055 Basel</span>
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+</div>
+</footer>
+</div>
+</template>
+<noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
+<script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/kontakt.js"></script>
+</body>
+</html>

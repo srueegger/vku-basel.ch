@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKU-Basel Buchung Theorievorbereitung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/buchung-theorie.css">
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-tpl">
+<div class="page">
+<header>
+<div class="hdr-in">
+<a class="brand" href="index.html">VKU-Basel</a>
+<span class="tag">Theorie- und VKU-Kurse</span>
+</div>
+<div class="strasse" aria-hidden="true"></div>
+</header>
+
+<main style="flex-grow: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 36px 24px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px;">
+<div style="display: flex; justify-content: center;">
+<h1 class="uk uk-weiss">{{title}}<img src="assets/img/pfeil-weiss.png" alt=""></h1>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: center;" aria-label="Schritte">
+<li class="{{st1}}"><i>1</i>Auswahl</li>
+<li class="{{st2}}"><i>2</i>Teilnehmer:in</li>
+<li class="{{st3}}"><i>3</i>Bezahlen</li>
+<li class="{{st4}}"><i>4</i>Bestätigung</li>
+</ol>
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 18px;">
+<section class="box">
+<div style="display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; align-items: baseline;">
+<h2 style="margin: 0; font-size: 20px; text-decoration: underline;">Theorievorbereitung TV270101</h2>
+<a href="theorie-kursdaten.html" style="font-size: 16px;">Anderen Termin wählen</a>
+</div>
+<p style="margin: 0;">Mi 13.01.27, 19:00 bis 21:00 Uhr · 1 Abend, 2 Stunden · Burgfelderstrasse 11, 4055 Basel</p>
+</section>
+
+<section class="box">
+<h2 style="margin: 0; font-size: 20px;">Dazu buchen und sparen</h2>
+<label class="{{vkuCls}}"><input type="checkbox" checked="{{vku}}" onChange="{{toggleVku}}"><span><strong>VKU-Kurs VK270101</strong>, jeden Montag vom 04.01. bis 25.01.27<br><span style="font-size: 16px;">Mit dem VKU zusammen kostet die Theorievorbereitung nur CHF 13.05</span></span></label>
+</section>
+
+<section class="box">
+<div class="sg" role="table" aria-label="Preisübersicht">
+<div class="row hd" role="row">
+<div class="h" role="columnheader"><img src="assets/img/vk1-23.png" alt="">Gewählt</div>
+<div class="h" role="columnheader"><img src="assets/img/vk1-30.png" alt="">Preis normal</div>
+<div class="h" role="columnheader"><img src="assets/img/vk1-10.png" alt="">Rabatt</div>
+<div class="h" role="columnheader"><img src="assets/img/vk2-65b.png" alt="">Dein Preis</div>
+</div>
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="1">
+<div class="row" role="row"><div class="c1" role="cell">{{l.name}}</div><div class="n" role="cell">{{l.list}}</div><div class="n" role="cell">{{l.disc}}</div><div class="n b" role="cell">{{l.price}}</div></div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 2px solid #000; padding-top: 12px; font-size: 20px; font-weight: 700;">
+<span>Dein individuelles Programm kostet:</span><span>CHF {{total}}</span>
+</div>
+</section>
+<div style="display: flex; justify-content: center;"><button type="button" class="ww" onClick="{{go2}}">Weiter mit der Auswahl</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 18px;">
+<section class="box">
+<h2 style="margin: 0; font-size: 20px;">Wer nimmt teil?</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
+<label class="f">Vorname<input type="text" autocomplete="given-name"></label>
+<label class="f">Nachname<input type="text" autocomplete="family-name"></label>
+<label class="f">Geburtsdatum<input type="text" placeholder="TT.MM.JJJJ"></label>
+<label class="f">Handynummer<input type="tel" placeholder="+41 79 …"></label>
+<label class="f">{{emailLabel}}<input type="email"></label>
+<label class="f">Strasse und Nr.<input type="text" autocomplete="street-address"></label>
+<label class="f">PLZ<input type="text" inputmode="numeric"></label>
+<label class="f">Ort<input type="text"></label>
+</div>
+<label class="{{otherCls}}"><input type="checkbox" checked="{{forOther}}" onChange="{{toggleOther}}"><span>Ich buche und bezahle für eine andere Person, z.B. als Elternteil</span></label>
+</section>
+<sc-if value="{{forOther}}" hint-placeholder-val="{{false}}">
+<section class="box">
+<h2 style="margin: 0; font-size: 20px;">Buchende Person</h2>
+<p style="margin: 0; font-size: 16px;">Alle Bestätigungen und die Rechnung gehen an diese E-Mail-Adresse.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
+<label class="f">Vorname<input type="text"></label>
+<label class="f">Nachname<input type="text"></label>
+<label class="f">E-Mail<input type="email" required=""></label>
+<label class="f">Handynummer<input type="tel"></label>
+</div>
+</section>
+</sc-if>
+<section class="box">
+<label class="opt"><input type="checkbox"><span>Ich akzeptiere die <a href="#">AGB</a> und die <a href="#">Datenschutzerklärung</a>.</span></label>
+</section>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;">
+<button type="button" class="back" onClick="{{go1}}"><img src="assets/img/vk2-33-zurueck.png" alt="">Zurück</button>
+<button type="button" class="ww" onClick="{{go3}}">Weiter zum Bezahlen</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 18px;">
+<section class="box">
+<h2 style="margin: 0; font-size: 20px;">Wie möchtest du bezahlen?</h2>
+<label class="{{pCardCls}}"><input type="radio" name="pay" checked="{{pCard}}" onChange="{{payCard}}"><span><strong>Kreditkarte</strong> · sofort bestätigt</span></label>
+<label class="{{pTwintCls}}"><input type="radio" name="pay" checked="{{pTwint}}" onChange="{{payTwint}}"><span><strong>TWINT</strong> · sofort bestätigt</span></label>
+<label class="{{pInvCls}}"><input type="radio" name="pay" checked="{{pInv}}" onChange="{{payInv}}"><span><strong>Rechnung</strong> · PDF mit QR-Einzahlungsschein per Mail</span></label>
+<label class="{{pCashCls}}"><input type="radio" name="pay" checked="{{pCash}}" onChange="{{payCash}}"><span><strong>Bar vor Ort</strong> · vor Kursbeginn</span></label>
+<p style="margin: 0; padding: 12px 14px; border: 2px solid #000; border-radius: 8px; font-size: 16px;"><strong>Wichtig:</strong> Der Kurs muss vor Kursbeginn bezahlt sein.</p>
+</section>
+<section class="box" style="flex-direction: row; flex-wrap: wrap; justify-content: space-between; font-size: 20px; font-weight: 700;">
+<span>Total</span><span>CHF {{total}}</span>
+</section>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;">
+<button type="button" class="back" onClick="{{go2}}"><img src="assets/img/vk2-33-zurueck.png" alt="">Zurück</button>
+<button type="button" class="ww" onClick="{{go4}}">{{payBtn}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{s4}}" hint-placeholder-val="{{false}}">
+<section class="box" style="align-items: center; text-align: center; padding: 36px 22px;">
+<img src="assets/img/vk2-65b.png" alt="" style="width: 88px; height: 88px;">
+<h2 style="margin: 0; font-size: 30px;">Du bist angemeldet!</h2>
+<p style="margin: 0;">Buchung <strong>B26-000124</strong> · Theorievorbereitung TV270101 · Mi 13.01.27, 19:00 Uhr</p>
+<p style="margin: 0; max-width: 560px;">Die Bestätigung ist unterwegs an deine E-Mail-Adresse.</p>
+<div style="width: 100%; max-width: 560px; text-align: left; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #000; border-bottom: 1px solid #000; padding: 16px 0;">
+<strong>Deine Termine</strong>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px;">
+<li>Theorievorbereitung: Mi 13.01.27 | 19:00 bis 21:00 Uhr</li>
+<sc-if value="{{vku}}" hint-placeholder-val="{{false}}">
+<li>VKU Teil 1 bis 4: jeden Montag vom 04.01. bis 25.01.27 | 15:00 bis 17:00 Uhr, <strong>Teil 3 16:00 bis 18:00 Uhr</strong></li>
+</sc-if>
+</ul>
+<div><a class="ww" href="{{ics}}" download="VKU-Basel-Termine.ics">In den Kalender speichern</a></div>
+<p style="margin: 0; font-size: 15px;">Funktioniert mit Apple Kalender, Google Kalender und Outlook. Die Termine liegen auch der Bestätigungsmail bei.</p>
+</div>
+<a href="index.html">Zur Startseite</a>
+</section>
+</sc-if>
+</main>
+</div>
+</template>
+<noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
+<script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/buchung-theorie.js"></script>
+</body>
+</html>

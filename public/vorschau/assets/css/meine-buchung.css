@@ -1,0 +1,24 @@
+body{margin:0;font-family:'Hind',Arial,sans-serif;color:#000;font-size:18px;line-height:1.45}
+a{color:#0563C1}a:hover{color:#033f80}
+.page{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#F5F7FC 30%,#B6C8E8 100%)}
+.page.vku{background:linear-gradient(135deg,#F5F7FC 30%,#C5E0B4 100%)}
+.hdr-in{max-width:1160px;margin:0 auto;padding:14px 24px 8px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 28px}
+.brand{font-weight:700;font-size:24px;color:#1F3864;text-decoration:none}.brand:hover{color:#1F3864}
+.tag{color:#1F3864;font-size:16px;margin-left:auto}
+.strasse{height:16px;background:url(../img/strasse.png) left center/auto 100% repeat-x}
+.ww{display:inline-flex;align-items:center;box-sizing:border-box;height:56px;border-style:solid;border-width:4px 50px 4px 4px;border-image:url(../img/wegweiser-gruen.png) 10 135 10 10 fill stretch;padding:5px 8px 0 14px;font-family:inherit;font-size:22px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap;cursor:pointer;background:none}
+.ww:hover{filter:brightness(.92);color:#fff}
+.ww[disabled]{filter:grayscale(1) opacity(.5);cursor:not-allowed}
+.uk{display:inline-flex;flex-direction:column;align-items:center;gap:6px;min-width:300px;max-width:100%;padding:10px 36px 6px;box-sizing:border-box;border-style:solid;font-weight:700;font-size:32px;line-height:1.15;margin:0;text-align:center}
+.uk img{width:60px;height:auto}
+.uk-gruen{border-width:8px;border-image:url(../img/ueberkopf-gruen.png) 26 fill stretch;color:#fff}
+.box{background:rgba(255,255,255,0.75);border:1px solid #9aa1ab;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.chip{display:inline-block;font-size:14px;font-weight:700;padding:3px 10px 1px;border-radius:999px}
+.c-ok{background:#92D050;color:#000}.c-miss{background:#FF0000;color:#fff}.c-open{background:#e3e7ed;color:#000}.c-new{background:#FFC000;color:#000}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:2px solid #c4c9d1;border-radius:10px;cursor:pointer;background:#fff}
+.opt input{width:22px;height:22px;margin-top:3px;accent-color:#00B500;flex-shrink:0}
+.opt.on{border-color:#00B500}
+.opt.off{opacity:.55;cursor:not-allowed}
+.ghost{font:inherit;font-weight:600;min-height:48px;padding:8px 18px 4px;border-radius:6px;border:2px solid #9aa1ab;background:#f4f6f9;color:#5b5e63;cursor:not-allowed}
+header{position:sticky;top:0;z-index:50;background:#F5F7FC;box-shadow:0 2px 8px rgba(31,56,100,.15)}
+.page.theo header{background:#fff}

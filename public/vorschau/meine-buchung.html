@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKU-Basel Meine Buchung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/meine-buchung.css">
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-tpl">
+<div class="page vku">
+<header>
+<div class="hdr-in">
+<a class="brand" href="index.html">VKU-Basel</a>
+<span class="tag">Theorie- und VKU-Kurse</span>
+</div>
+<div class="strasse" aria-hidden="true"></div>
+</header>
+
+<main style="flex-grow: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 36px 24px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px;">
+<div style="display: flex; justify-content: center;">
+<h1 class="uk uk-gruen">Meine Buchung<img src="assets/img/pfeil-gruen.png" alt=""></h1>
+</div>
+
+<section class="box">
+<div style="display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between; align-items: baseline;">
+<h2 style="margin: 0; font-size: 20px; text-decoration: underline;">Lea Muster · VKU-Kurs {{courseCode}}</h2>
+<span style="font-size: 16px;">Buchung B26-000123 · bezahlt mit TWINT, CHF 114.95</span>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0;">
+<sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+<li style="display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 10px 0; border-top: 1px solid #c4c9d1;">
+<strong style="width: 64px;">{{p.label}}</strong>
+<span style="flex: 1 1 260px;">{{p.when}}</span>
+<span class="{{p.chipCls}}">{{p.status}}</span>
+</li>
+</sc-for>
+</ul>
+</section>
+
+<sc-if value="{{needsMakeup}}" hint-placeholder-val="{{true}}">
+<section class="box" style="border: 2px solid #FF0000;">
+<div style="display: flex; gap: 16px; align-items: center;">
+<img src="assets/img/vk1-30.png" alt="Signal Gefahr" style="width: 64px; height: auto;">
+<h2 style="margin: 0; font-size: 22px;">Teil 2 verpasst? Kostenlos nachholen.</h2>
+</div>
+<p style="margin: 0;">Die Teile werden der Reihe nach besucht. Darum werden deine Teile 3 und 4 in den Kurs verschoben, in dem du Teil 2 nachholst. Das kostet nichts.</p>
+<label class="{{o1Cls}}"><input type="radio" name="mk" checked="{{o1}}" onChange="{{pick1}}"><span><strong>VK270201</strong> · Teil 2 am Mo 08.02.27, 19:00 bis 21:00 Uhr<br><span style="font-size: 16px;">danach Teil 3 Mo 15.02.27 und Teil 4 Mo 22.02.27, 18:00 bis 20:00 Uhr · 7 Plätze frei</span></span></label>
+<label class="opt off"><input type="radio" name="mk" disabled=""><span><strong>VK270202</strong> · Teil 2 am Di 09.02.27 · ausgebucht</span></label>
+<label class="{{o3Cls}}"><input type="radio" name="mk" checked="{{o3}}" onChange="{{pick3}}"><span><strong>VK270301</strong> · Teil 2 am Mi 10.03.27, 19:00 bis 21:00 Uhr<br><span style="font-size: 16px;">danach Teil 3 Mi 17.03.27 und Teil 4 Mi 24.03.27 · 12 Plätze frei</span></span></label>
+<div><button type="button" class="ww" disabled="{{noPick}}" onClick="{{confirm}}">Termin verbindlich buchen</button></div>
+</section>
+</sc-if>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<section class="box" style="border: 2px solid #00B500; flex-direction: row; gap: 16px; align-items: center;">
+<img src="assets/img/vk2-65b.png" alt="" style="width: 56px; height: 56px;">
+<p style="margin: 0;"><strong>Umgebucht.</strong> Die neuen Termine stehen oben und sind per Mail an dich unterwegs.</p>
+</section>
+</sc-if>
+
+<section class="box">
+<h2 style="margin: 0; font-size: 20px;">Umbuchen oder annullieren</h2>
+<p style="margin: 0;">Möglich bis 1 Stunde vor Beginn von Teil 1. Dein Kurs hat bereits begonnen, darum geht das nicht mehr.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+<button type="button" class="ghost" disabled="">Ganzen Kurs umbuchen</button>
+<button type="button" class="ghost" disabled="">Buchung annullieren</button>
+</div>
+<p style="margin: 0; font-size: 16px;">Fragen? <a href="tel:+41796386138">+41 79 638 61 38</a> oder <a href="kontakt.html">Kontaktformular</a></p>
+</section>
+</main>
+</div>
+</template>
+<noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
+<script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/meine-buchung.js"></script>
+</body>
+</html>

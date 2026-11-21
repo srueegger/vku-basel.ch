@@ -1,0 +1,37 @@
+body{margin:0;font-family:'Hind',Arial,sans-serif;color:#000;font-size:18px;line-height:1.45}
+a{color:#0563C1}a:hover{color:#033f80}
+.page{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#F5F7FC 30%,#B6C8E8 100%)}
+.page.vku{background:linear-gradient(135deg,#F5F7FC 30%,#C5E0B4 100%)}
+.hdr-in{max-width:1160px;margin:0 auto;padding:14px 24px 8px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 28px}
+.brand{font-weight:700;font-size:24px;color:#1F3864;text-decoration:none}.brand:hover{color:#1F3864}
+.tag{color:#1F3864;font-size:16px;margin-left:auto}
+.strasse{height:16px;background:url(../img/strasse.png) left center/auto 100% repeat-x}
+.ww{display:inline-flex;align-items:center;box-sizing:border-box;height:56px;border-style:solid;border-width:4px 50px 4px 4px;border-image:url(../img/wegweiser-gruen.png) 10 135 10 10 fill stretch;padding:5px 8px 0 14px;font-family:inherit;font-size:22px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap;cursor:pointer;background:none}
+.ww:hover{filter:brightness(.92);color:#fff}
+.ww-weiss{border-image-source:url(../img/wegweiser-weiss.png);color:#000}
+.ww-weiss:hover{color:#000}
+.back{display:inline-flex;align-items:center;gap:10px;background:none;border:0;font:inherit;font-weight:600;color:#000;cursor:pointer;min-height:44px;padding:0}
+.back img{width:44px;height:44px}
+.uk{display:inline-flex;flex-direction:column;align-items:center;gap:6px;min-width:300px;max-width:100%;padding:10px 36px 6px;box-sizing:border-box;border-style:solid;font-weight:700;font-size:32px;line-height:1.15;margin:0;text-align:center}
+.uk img{width:60px;height:auto}
+.uk-gruen{border-width:8px;border-image:url(../img/ueberkopf-gruen.png) 26 fill stretch;color:#fff}
+.step{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:#3c4047}
+.step i{font-style:normal;width:32px;height:32px;border-radius:50%;border:2px solid #7f7f7f;display:inline-flex;align-items:center;justify-content:center;background:#fff}
+.step.on{color:#000}.step.on i{background:#000;border-color:#000;color:#fff}
+.box{background:rgba(255,255,255,0.75);border:1px solid #9aa1ab;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.f{display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600}
+.f input{font:inherit;font-size:18px;font-weight:400;padding:10px 12px 6px;border:2px solid #7f7f7f;border-radius:6px;min-height:48px;box-sizing:border-box;background:#fff}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:2px solid #c4c9d1;border-radius:10px;cursor:pointer;background:#fff}
+.opt input{width:22px;height:22px;margin-top:3px;accent-color:#00B500;flex-shrink:0}
+.opt.on{border-color:#00B500}
+.sg{display:flex;flex-direction:column;font-size:18px}
+.sg .row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;column-gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #c4c9d1}
+.sg .row.hd{align-items:end;padding-top:0;border-bottom:2px solid #000}
+.sg .h{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:15px;font-weight:700;text-align:center}
+.sg .h:first-child{align-items:flex-start;text-align:left}
+.sg .h img{width:64px;height:64px;object-fit:contain}
+.sg .c1{font-weight:700}
+.sg .n{text-align:center}.sg .b{font-weight:700}
+.rot{color:#FF0000}
+header{position:sticky;top:0;z-index:50;background:#F5F7FC;box-shadow:0 2px 8px rgba(31,56,100,.15)}
+.page.theo header{background:#fff}

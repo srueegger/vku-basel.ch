@@ -2,7 +2,9 @@
 
 `vku-basel.ch/partner`: Partnerseite mit Interessenformular (SQLite) und
 passwortgeschütztem Excel-Export unter `/partner/export/`. `vku-basel.ch/` ist
-bewusst eine leere Seite. Reines PHP 8.3, ohne Framework und ohne Composer.
+bewusst eine leere Seite. Unter `/vorschau/` liegt der statische Klick-Prototyp
+der neuen Website (Export aus Claude Design, siehe `public/vorschau/LIESMICH.txt`),
+öffentlich, aber mit `X-Robots-Tag: noindex`. Reines PHP 8.3, ohne Framework und ohne Composer.
 
 ## Lokal
 
@@ -25,6 +27,7 @@ bash scripts/setup-local.sh
 
 - Seite: https://vku-basel.ddev.site/partner/
 - Export: https://vku-basel.ddev.site/partner/export/
+- Vorschau: https://vku-basel.ddev.site/vorschau/
 - Daten: `data/partner.sqlite`
 
 ## Tests

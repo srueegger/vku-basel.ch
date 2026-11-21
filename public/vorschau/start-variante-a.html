@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKU-Basel Startseite Variante A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/start-variante-a.css">
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-tpl">
+<div id="top" class="page">
+<header>
+<div class="hdr-in">
+<a class="brand" href="index.html">VKU-Basel</a>
+<button type="button" class="burger" aria-label="Menü öffnen" aria-controls="hauptnav" aria-expanded="{{menuExp}}" onClick="{{toggleMenu}}"><img src="assets/img/pfeil-blau.png" alt=""></button>
+<nav class="{{navCls}}" id="hauptnav" aria-label="Hauptnavigation">
+<a href="vku-kursdaten.html">VKU-Kursdaten</a>
+<a href="theorie-kursdaten.html">Theorie</a>
+<a href="kombi-angebote.html">Kombi-Angebote</a>
+<a href="gutscheine.html">Gutscheine</a>
+<a href="faq.html">FAQ</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
+<span class="tag">Theorie- und VKU-Kurse</span>
+</div>
+<div class="strasse" aria-hidden="true"></div>
+</header>
+<nav class="{{ovCls}}" aria-label="Hauptmenü Handy" aria-hidden="{{ovHidden}}">
+<div class="mov-in">
+<span class="pfosten" aria-hidden="true"></span>
+<div class="mov-top"><button type="button" class="burger zu" onClick="{{toggleMenu}}" aria-label="Menü schliessen"><img src="assets/img/pfeil-blau.png" alt=""></button></div>
+<div class="stack">
+<a class="mw" style="transition-delay: 60ms;" href="vku-kursdaten.html">VKU-Kursdaten</a>
+<a class="mw mw-blau" style="transition-delay: 110ms;" href="kombi-angebote.html">Kombi-Angebote</a>
+<a class="mw mw-weiss" style="transition-delay: 160ms;" href="theorie-kursdaten.html">Theorie</a>
+<a class="mw mw-orange" style="transition-delay: 210ms;" href="gutscheine.html">Gutscheine</a>
+<a class="mw mw-weiss" style="transition-delay: 260ms;" href="faq.html">FAQ</a>
+<a class="mw mw-weiss" style="transition-delay: 310ms;" href="kontakt.html">Kontakt</a>
+<a class="mw mw-grau" style="transition-delay: 380ms; margin-top: 18px;" href="#">reinis Fahrschule</a>
+</div>
+<div style="position: relative; z-index: 1; margin-top: auto; padding-top: 40px; display: flex; gap: 14px; align-items: center; color: #fff;">
+<img src="assets/img/signal-telefon.png" alt="" style="width: 40px; height: auto;">
+<div style="display: flex; flex-direction: column; font-size: 16px; line-height: 1.3;">
+<a href="tel:+41796386138" style="color: #fff; font-weight: 700;">+41 79 638 61 38</a>
+<span>Burgfelderstrasse 11, 4055 Basel</span>
+</div>
+</div>
+</div>
+</nav>
+
+<main style="flex-grow: 1;">
+<section style="max-width: 1160px; margin: 0 auto; padding: 72px 24px 64px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: center;">
+<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 22px;">
+<h1 style="margin: 0; font-size: clamp(24px, 7vw, 58px); line-height: 1.05; font-weight: 700;"><span style="white-space: nowrap;">Theoretisch am besten,</span><br><span style="white-space: nowrap;">praktisch unschlagbar.</span></h1>
+<p style="margin: 0; font-size: 21px; max-width: 480px;">Der VKU in Basel: 4 Teile à 2 Stunden, direkt am Burgfelderplatz. <strong class="rot">CHF 114.95</strong> komplett mit allem.</p>
+</div>
+<nav class="mast" style="flex: 0 1 420px;" aria-label="Wegweiser">
+<a class="ww ww-blau" href="vku-kursdaten.html">VKU-Kursdaten <small>ab 04.01.</small></a>
+<a class="ww" href="kombi-angebote.html">Kombi-Angebote <small>ab 69.95</small></a>
+<a class="ww ww-weiss" href="theorie-kursdaten.html">Theorie-Vorbereitung <small>25.25</small></a>
+<a class="ww ww-orange" href="gutscheine.html">Geschenk-Gutschein</a>
+</nav>
+</section>
+
+<section style="background: rgba(255,255,255,0.55); border-top: 1px solid rgba(31,56,100,0.2); border-bottom: 1px solid rgba(31,56,100,0.2);">
+<div style="max-width: 1160px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 0;">
+<div class="fact"><strong>4 × 2 Stunden</strong><span>an vier verschiedenen Tagen</span></div>
+<div class="fact"><strong>max. 12 Personen</strong><span>pro Kursteil</span></div>
+<div class="fact"><strong>Verpasst?</strong><span>kostenlos nachholen</span></div>
+<div class="fact"><strong>Tram 1, 14, 3</strong><span>bis Burgfelderplatz</span></div>
+</div>
+</section>
+
+<section style="max-width: 1160px; margin: 0 auto; padding: 56px 24px 64px; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center;">
+<img src="assets/img/signal-telefon.png" alt="Signal Telefon" style="width: 72px; height: auto;">
+<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 4px;">
+<h2 style="margin: 0; font-size: 26px;">Fragen?</h2>
+<p style="margin: 0;"><a href="tel:+41796386138">+41 79 638 61 38</a> · <a href="mailto:info@reinis-fahrschule.ch">info@reinis-fahrschule.ch</a> · Burgfelderstrasse 11, 4055 Basel</p>
+</div>
+<a class="ww ww-weiss" href="kontakt.html">vku-basel.ch/kontakt</a>
+</section>
+</main>
+
+<footer class="foot">
+<div style="max-width: 1160px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-top: 1px solid rgba(31,56,100,0.3);">
+<span style="flex: 1 1 320px;">VKU-Basel · ein Angebot der reinis Fahrschule · Burgfelderstrasse 11, 4055 Basel</span>
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+</div>
+</footer>
+</div>
+</template>
+<noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
+<script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/start-variante-a.js"></script>
+</body>
+</html>

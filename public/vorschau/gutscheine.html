@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKU-Basel Gutscheine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/gutscheine.css">
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-tpl">
+<div class="page">
+<header>
+<div class="hdr-in">
+<a class="brand" href="index.html">VKU-Basel</a>
+<button type="button" class="burger" aria-label="Menü öffnen" aria-controls="hauptnav" aria-expanded="{{menuExp}}" onClick="{{toggleMenu}}"><img src="assets/img/pfeil-blau.png" alt=""></button>
+<nav class="{{navCls}}" id="hauptnav" aria-label="Hauptnavigation">
+<a href="vku-kursdaten.html">VKU-Kursdaten</a>
+<a href="theorie-kursdaten.html">Theorie</a>
+<a href="kombi-angebote.html">Kombi-Angebote</a>
+<a class="act" href="gutscheine.html">Gutscheine</a>
+<a href="faq.html">FAQ</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
+<span class="tag">Theorie- und VKU-Kurse</span>
+</div>
+<div class="strasse" aria-hidden="true"></div>
+</header>
+<nav class="{{ovCls}}" aria-label="Hauptmenü Handy" aria-hidden="{{ovHidden}}">
+<div class="mov-in">
+<span class="pfosten" aria-hidden="true"></span>
+<div class="mov-top"><button type="button" class="burger zu" onClick="{{toggleMenu}}" aria-label="Menü schliessen"><img src="assets/img/pfeil-blau.png" alt=""></button></div>
+<div class="stack">
+<a class="mw" style="transition-delay: 60ms;" href="vku-kursdaten.html">VKU-Kursdaten</a>
+<a class="mw mw-blau" style="transition-delay: 110ms;" href="kombi-angebote.html">Kombi-Angebote</a>
+<a class="mw mw-weiss" style="transition-delay: 160ms;" href="theorie-kursdaten.html">Theorie</a>
+<a class="mw mw-orange act" style="transition-delay: 210ms;" href="gutscheine.html">Gutscheine</a>
+<a class="mw mw-weiss" style="transition-delay: 260ms;" href="faq.html">FAQ</a>
+<a class="mw mw-weiss" style="transition-delay: 310ms;" href="kontakt.html">Kontakt</a>
+<a class="mw mw-grau" style="transition-delay: 380ms; margin-top: 18px;" href="#">reinis Fahrschule</a>
+</div>
+<div style="position: relative; z-index: 1; margin-top: auto; padding-top: 40px; display: flex; gap: 14px; align-items: center; color: #fff;">
+<img src="assets/img/signal-telefon.png" alt="" style="width: 40px; height: auto;">
+<div style="display: flex; flex-direction: column; font-size: 16px; line-height: 1.3;">
+<a href="tel:+41796386138" style="color: #fff; font-weight: 700;">+41 79 638 61 38</a>
+<span>Burgfelderstrasse 11, 4055 Basel</span>
+</div>
+</div>
+</div>
+</nav>
+
+<main style="flex-grow: 1; max-width: 1160px; width: 100%; margin: 0 auto; padding: 36px 24px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; justify-content: center;">
+<h1 class="uk uk-weiss">Geschenk-Gutscheine<img src="assets/img/pfeil-weiss.png" alt=""></h1>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start;">
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 18px;">
+<section class="box" style="padding: 0; gap: 0; overflow: hidden;">
+<div class="tabs" role="tablist" aria-label="Art des Gutscheins">
+<button type="button" role="tab" class="{{tValue}}" aria-selected="{{selValue}}" onClick="{{pickValue}}">Betrag</button>
+<button type="button" role="tab" class="{{tVku}}" aria-selected="{{selVku}}" onClick="{{pickVku}}">VKU</button>
+<button type="button" role="tab" class="{{tCombo}}" aria-selected="{{selCombo}}" onClick="{{pickCombo}}">VKU + Theorie</button>
+<button type="button" role="tab" class="{{tPartner}}" aria-selected="{{selPartner}}" onClick="{{pickPartner}}">VKU + Fahrstunden</button>
+</div>
+<div style="padding: 22px; display: flex; flex-direction: column; gap: 12px;" role="tabpanel">
+<sc-if value="{{isValue}}" hint-placeholder-val="{{true}}">
+<span style="font-size: 16px; font-weight: 600;">Betrag wählen</span>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+<div class="seg" role="group" aria-label="Betrag">
+<button type="button" class="{{a50}}" onClick="{{set50}}">CHF 50</button>
+<button type="button" class="{{a100}}" onClick="{{set100}}">CHF 100</button>
+<button type="button" class="{{a150}}" onClick="{{set150}}">CHF 150</button>
+</div>
+<label class="{{betragCls}}">CHF<input type="number" min="20" max="2000" step="5" placeholder="eigener Betrag" value="{{free}}" onInput="{{setFreeVal}}" onChange="{{setFreeVal}}" aria-label="Eigener Betrag in CHF, ab 20 in 5er-Schritten"></label>
+</div>
+</sc-if>
+<sc-if value="{{isVku}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0;">Ein ganzer VKU, 4 × 2 Stunden, einlösbar für jeden VKU-Kurs. <strong>CHF 114.95</strong></p>
+</sc-if>
+<sc-if value="{{isCombo}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0;">VKU und Theorievorbereitung zusammen. <strong>CHF 128.00</strong> statt 140.20</p>
+</sc-if>
+<sc-if value="{{isPartner}}" hint-placeholder-val="{{false}}">
+<span class="step">1. Fahrlehrerin wählen</span>
+<div class="pgrid">
+<sc-for list="{{partners}}" as="pt" hint-placeholder-count="2">
+<button type="button" class="{{pt.cls}}" aria-pressed="{{pt.pressed}}" onClick="{{pt.pick}}"><img src="{{pt.photo}}" alt=""><span><strong>{{pt.name}}</strong><br>{{pt.school}} · {{pt.region}}</span></button>
+</sc-for>
+</div>
+<span class="step">2. Paket wählen</span>
+<sc-for list="{{offers}}" as="o" hint-placeholder-count="2">
+<label class="{{o.cls}}"><input type="radio" name="paket" checked="{{o.on}}" onChange="{{o.pick}}"><span><strong>{{o.title}}</strong><br><span style="font-size: 15px;">VKU noch CHF {{o.vku}} · je Fahrstunde CHF {{o.per}}</span></span><span style="text-align: right; white-space: nowrap;"><s style="font-size: 15px;">{{o.regular}}</s><br><strong class="rot">CHF {{o.bundle}}</strong></span></label>
+</sc-for>
+<p class="hinweis"><strong>So funktioniert es:</strong> Die beschenkte Person bucht ihren VKU-Termin selbst mit dem Gutscheincode. {{partnerName}} erhält die Kontaktdaten und meldet sich für die Fahrstunden. Gültigkeit 2 Jahre ab Bezahlung.</p>
+</sc-if>
+</div>
+</section>
+<section class="box">
+<h2 style="margin: 0; font-size: 20px;">Persönlicher Text</h2>
+<label class="f">Für wen und warum?<textarea rows="3" placeholder="Alles Gute zum 18. Geburtstag!" onChange="{{setMsg}}"></textarea></label>
+<label class="f">Deine E-Mail-Adresse<input type="email" placeholder="Der Gutschein kommt als PDF an diese Adresse"></label>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; font-size: 22px;">
+<span>Total <strong class="rot">CHF {{price}}</strong></span>
+<a class="ww" href="buchung-vku.html">Weiter zur Zahlung</a>
+</div>
+</div>
+
+<aside style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 10px;" aria-label="Vorschau des Gutscheins">
+<p style="margin: 0; font-size: 15px; font-weight: 700;">Vorschau PDF</p>
+<div style="background: #fff; border: 3px solid #000; border-radius: 10px; overflow: hidden;">
+<div style="background: #00B500; color: #fff; padding: 16px 22px 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #fff; outline: 0;">
+<strong style="font-size: 26px;">Gutschein</strong>
+<strong style="font-size: 20px;">VKU-Basel</strong>
+</div>
+<div style="padding: 22px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
+<strong style="font-size: 30px; line-height: 1.1;">{{label}}</strong>
+<span style="white-space: pre-line;">{{msg}}</span>
+<span style="font-size: 15px; margin-top: 8px;">Code</span>
+<strong style="font-size: 22px; letter-spacing: 0.04em;">GS2611-K7QF-3</strong>
+<span style="font-size: 15px;">Gültigkeit 2 Jahre ab Bezahlung</span>
+</div>
+<div style="width: 120px; height: 120px; border: 2px dashed #7f7f7f; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; box-sizing: border-box;">QR-Code<br>mit Code</div>
+</div>
+</div>
+<p style="margin: 0; font-size: 15px;">Der QR-Code wird beim Einlösen im Backend gescannt. Gutscheine mit Betrag können auch in Teilen eingelöst werden.</p>
+</aside>
+</div>
+
+<div style="display: flex; justify-content: center;">
+<a href="index.html" aria-label="Zurück" style="display: inline-flex;"><img src="assets/img/vk2-33-zurueck.png" alt="" style="width: 64px; height: 64px;"></a>
+</div>
+</main>
+
+<footer class="foot">
+<div style="max-width: 1160px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-top: 1px solid rgba(31,56,100,0.3);">
+<span style="flex: 1 1 320px;">VKU-Basel · ein Angebot der reinis Fahrschule · Burgfelderstrasse 11, 4055 Basel</span>
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+</div>
+</footer>
+</div>
+</template>
+<noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
+<script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/gutscheine.js"></script>
+</body>
+</html>
