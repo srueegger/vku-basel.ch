@@ -1,4 +1,0 @@
-# Klick-Prototyp: öffentlich erreichbar, aber nicht in Suchmaschinen aufnehmen.
-<IfModule mod_headers.c>
-    Header always set X-Robots-Tag "noindex, nofollow"
-</IfModule>

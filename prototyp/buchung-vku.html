@@ -47,8 +47,9 @@
 <label class="{{theoCls}}"><input type="checkbox" checked="{{theo}}" onChange="{{toggleTheo}}"><span><strong>Theorievorbereitung TV270101</strong>, Mi 13.01.27, 19:00 bis 21:00 Uhr<br><span style="font-size: 16px;">Einzeln CHF 25.25, zusammen mit dem VKU CHF 13.05</span></span></label>
 <p style="margin: 6px 0 0; font-weight: 600;">Fahrstunden-Abo bei einer Partnerfahrschule</p>
 <label class="{{bNoneCls}}"><input type="radio" name="bundle" checked="{{bNone}}" onChange="{{pickNone}}"><span>Ohne Fahrstunden, nur VKU</span></label>
-<label class="{{bDorisCls}}"><input type="radio" name="bundle" checked="{{bDoris}}" onChange="{{pickDoris}}"><span><strong>Doris, Fahrschule Doris Studer</strong> · Basel-Stadt<br><span style="font-size: 16px;">VKU + 5 Fahrstunden à 50 Minuten: <span class="rot">CHF 524.95</span> statt 564.95</span></span></label>
-<label class="{{bGabyCls}}"><input type="radio" name="bundle" checked="{{bGaby}}" onChange="{{pickGaby}}"><span><strong>Gaby, Step by Step</strong> · Region Zuzgen<br><span style="font-size: 16px;">VKU + 5 Fahrstunden à 50 Minuten: <span class="rot">CHF 479.95</span> statt 698.95</span></span></label>
+<sc-for list="{{bundles}}" as="b" hint-placeholder-count="2">
+<label class="{{b.cls}}"><input type="radio" name="bundle" checked="{{b.on}}" onChange="{{b.pick}}"><span><strong>{{b.name}}, {{b.school}}</strong> · {{b.region}}<br><span style="font-size: 16px;">VKU + {{b.lessons}} Fahrstunden à {{b.min}} Minuten: <span class="rot">CHF {{b.bundle}}</span> statt {{b.regular}}</span></span></label>
+</sc-for>
 </section>
 
 <section class="box">
@@ -166,6 +167,7 @@
 </template>
 <noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
 <script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/partner.js"></script>
 <script src="assets/js/buchung-vku.js"></script>
 </body>
 </html>

@@ -10,17 +10,13 @@ class Component extends DCLogic {
       moreLabel: this.state.open === id ? 'Weniger anzeigen' : 'Mehr zum Angebot',
       toggle: () => this.setState({ open: this.state.open === id ? '' : id })
     });
-    const partners = [
-      { id: 'doris', school: 'Fahrschule Doris Studer', name: 'Doris', region: 'Basel-Stadt', cat: 'B', photo: 'assets/img/foto-doris.jpg',
-        offers: [
-          offer('d5', 'Doris', 'VKU + 5 Fahrstunden à 50 Minuten', 5, 56495, 52495, 9495),
-          offer('d10', 'Doris', 'VKU + 10 Fahrstunden à 55 Minuten', 10, 101495, 92495, 6995)
-        ] },
-      { id: 'gaby', school: 'Step by Step', name: 'Gaby', region: 'Region Zuzgen', cat: 'B', photo: 'assets/img/foto-gaby.jpg',
-        offers: [ offer('g5', 'Gaby', 'VKU + 5 Fahrstunden à 50 Minuten', 5, 69895, 47995, 9995) ] }
-    ];
+    const partners = VKU.partner.map((p) => Object.assign({}, p, {
+      offers: p.offers.map((o) => offer(o.id, p.name, 'VKU + ' + o.lessons + ' Fahrstunden à ' + o.min + ' Minuten', o.lessons, o.regular, o.bundle, o.vku))
+    }));
     return {
       partners,
+      abPreis: VKU.abPreis(),
+      monatId: partners.length ? partners[0].id : 'partner',
       explain: this.state.explain,
       explainLabel: this.state.explain ? 'Weniger anzeigen' : 'Erkläre mir mehr dazu',
       toggleExplain: () => this.setState({ explain: !this.state.explain }),

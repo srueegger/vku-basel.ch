@@ -11,10 +11,14 @@ WEBROOT="public_html/vku-basel.ch"
 APP="vku-basel-app"
 URL="https://vku-basel.ch"
 
+# Klick-Prototyp: je Partnerin eine Version unter public/<pfad>/ erzeugen.
+php scripts/build-prototyp.php
+
 ssh "$HOST" "mkdir -p ~/$APP/src ~/$APP/data && chmod 700 ~/$APP/data"
 
 rsync -az --delete \
   --exclude 'cgi-bin' --exclude '.well-known' --exclude 'partner/export/.htaccess' \
+  --exclude '.gitignore' \
   public/ "$HOST:$WEBROOT/"
 rsync -az --delete src/ "$HOST:$APP/src/"
 

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VKU-Basel Startseite Variante A</title>
+<title>VKU-Basel Startseite Variante B</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/css/start-variante-a.css">
+<link rel="stylesheet" href="assets/css/start-variante-b.css">
 </head>
 <body>
 <div id="dc-root"></div>
@@ -52,34 +52,33 @@
 </div>
 </nav>
 
-<main style="flex-grow: 1;">
-<section style="max-width: 1160px; margin: 0 auto; padding: 72px 24px 64px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: center;">
-<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 22px;">
-<h1 style="margin: 0; font-size: clamp(24px, 7vw, 58px); line-height: 1.05; font-weight: 700;"><span style="white-space: nowrap;">Theoretisch am besten,</span><br><span style="white-space: nowrap;">praktisch unschlagbar.</span></h1>
-<p style="margin: 0; font-size: 21px; max-width: 480px;">Der VKU in Basel: 4 Teile à 2 Stunden, direkt am Burgfelderplatz. <strong class="rot">CHF 114.95</strong> komplett mit allem.</p>
+<main style="flex-grow: 1; max-width: 1160px; width: 100%; margin: 0 auto; padding: 64px 24px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px;">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center;">
+<h1 style="margin: 0; font-size: clamp(24px, 7vw, 54px); line-height: 1.08; font-weight: 700;"><span style="white-space: nowrap;">Theoretisch am besten,</span><br><span style="white-space: nowrap;">praktisch unschlagbar.</span></h1>
+<p style="margin: 0; font-size: 21px;">Wähle deine Spur.</p>
 </div>
-<nav class="mast" style="flex: 0 1 420px;" aria-label="Wegweiser">
-<a class="ww ww-blau" href="vku-kursdaten.html">VKU-Kursdaten <small>ab 04.01.</small></a>
-<a class="ww" href="kombi-angebote.html">Kombi-Angebote <small>ab 69.95</small></a>
-<a class="ww ww-weiss" href="theorie-kursdaten.html">Theorie-Vorbereitung <small>25.25</small></a>
-<a class="ww ww-orange" href="gutscheine.html">Geschenk-Gutschein</a>
+
+<nav class="portal" aria-label="Angebote">
+<a class="uk uk-gruen" href="vku-kursdaten.html"><b>VKU</b><span>4 × 2 Stunden · CHF 114.95</span><img src="assets/img/pfeil-gruen.png" alt=""></a>
+<a class="uk uk-blau" href="kombi-angebote.html"><b>VKU &amp; Fahren</b><span>mit Fahrstunden-Abo ab CHF {{abPreis}}</span><img src="assets/img/pfeil-blau.png" alt=""></a>
+<a class="uk uk-weiss" href="theorie-kursdaten.html"><b>Theorie</b><span>1 Abend · CHF 25.25</span><img src="assets/img/pfeil-weiss.png" alt=""></a>
 </nav>
-</section>
 
-<section style="background: rgba(255,255,255,0.55); border-top: 1px solid rgba(31,56,100,0.2); border-bottom: 1px solid rgba(31,56,100,0.2);">
-<div style="max-width: 1160px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 0;">
-<div class="fact"><strong>4 × 2 Stunden</strong><span>an vier verschiedenen Tagen</span></div>
-<div class="fact"><strong>max. 12 Personen</strong><span>pro Kursteil</span></div>
-<div class="fact"><strong>Verpasst?</strong><span>kostenlos nachholen</span></div>
-<div class="fact"><strong>Tram 1, 14, 3</strong><span>bis Burgfelderplatz</span></div>
+<section style="display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between; border-top: 1px solid rgba(31,56,100,0.3); padding-top: 32px;">
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<strong style="font-size: 22px;">Ideal auch als Geschenk!</strong>
+<span>Gutschein mit Betrag oder für einen VKU, sofort als PDF</span>
 </div>
+<a class="ww ww-orange" href="gutscheine.html">Zu den Gutscheinen</a>
 </section>
 
-<section style="max-width: 1160px; margin: 0 auto; padding: 56px 24px 64px; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center;">
-<img src="assets/img/signal-telefon.png" alt="Signal Telefon" style="width: 72px; height: auto;">
-<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 4px;">
-<h2 style="margin: 0; font-size: 26px;">Fragen?</h2>
-<p style="margin: 0;"><a href="tel:+41796386138">+41 79 638 61 38</a> · <a href="mailto:info@reinis-fahrschule.ch">info@reinis-fahrschule.ch</a> · Burgfelderstrasse 11, 4055 Basel</p>
+<section style="display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between;">
+<div style="display: flex; gap: 20px; align-items: center;">
+<img src="assets/img/signal-telefon.png" alt="Signal Telefon" style="width: 60px; height: auto;">
+<div style="display: flex; flex-direction: column;">
+<strong style="font-size: 22px;">Burgfelderstrasse 11, 4055 Basel</strong>
+<span>Tram 1, 14, 3 bis Burgfelderplatz · <a href="tel:+41796386138">+41 79 638 61 38</a></span>
+</div>
 </div>
 <a class="ww ww-weiss" href="kontakt.html">vku-basel.ch/kontakt</a>
 </section>
@@ -96,6 +95,7 @@
 </template>
 <noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
 <script src="assets/js/dc-lite.js"></script>
-<script src="assets/js/start-variante-a.js"></script>
+<script src="assets/js/partner.js"></script>
+<script src="assets/js/start-variante-b.js"></script>
 </body>
 </html>

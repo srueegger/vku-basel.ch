@@ -7,8 +7,10 @@ class Component extends DCLogic {
     const s = this.state;
     const chf = (r) => (r / 100).toFixed(2);
     const lines = [];
-    if (s.bundle === 'doris') lines.push({ name: 'VKU + 5 Fahrstunden mit Doris', l: 56495, p: 52495 });
-    else if (s.bundle === 'gaby') lines.push({ name: 'VKU + 5 Fahrstunden mit Gaby', l: 69895, p: 47995 });
+    // Pro Partnerin wird ihr erstes Angebot zur Wahl gestellt.
+    const bundles = VKU.partner.map((p) => ({ p, o: p.offers[0] }));
+    const picked = bundles.find((x) => x.p.id === s.bundle);
+    if (picked) lines.push({ name: 'VKU + ' + picked.o.lessons + ' Fahrstunden mit ' + picked.p.name, l: picked.o.regular, p: picked.o.bundle });
     else lines.push({ name: 'VKU', l: 11495, p: 11495 });
     if (s.theo) lines.push({ name: 'Vorbereitung Theorie', l: 2525, p: 1305 });
     if (s.voucher) lines.push({ name: 'Gutschein GS2611-K7QF-3', l: 0, p: -5000 });
@@ -36,9 +38,12 @@ class Component extends DCLogic {
       st1: stc(1), st2: stc(2), st3: stc(3), st4: stc(4),
       go1: set({ step: 1 }), go2: set({ step: 2 }), go3: set({ step: 3 }), go4: set({ step: 4 }),
       theo: s.theo, theoCls: cls(s.theo), toggleTheo: () => this.setState({ theo: !s.theo }),
-      bNone: s.bundle === 'none', bDoris: s.bundle === 'doris', bGaby: s.bundle === 'gaby',
-      bNoneCls: cls(s.bundle === 'none'), bDorisCls: cls(s.bundle === 'doris'), bGabyCls: cls(s.bundle === 'gaby'),
-      pickNone: set({ bundle: 'none' }), pickDoris: set({ bundle: 'doris' }), pickGaby: set({ bundle: 'gaby' }),
+      bNone: s.bundle === 'none', bNoneCls: cls(s.bundle === 'none'), pickNone: set({ bundle: 'none' }),
+      bundles: bundles.map((x) => ({
+        name: x.p.name, school: x.p.school, region: x.p.region, lessons: x.o.lessons, min: x.o.min,
+        bundle: chf(x.o.bundle), regular: chf(x.o.regular),
+        on: s.bundle === x.p.id, cls: cls(s.bundle === x.p.id), pick: set({ bundle: x.p.id })
+      })),
       hasBundle: s.bundle !== 'none',
       lines: lines.map((x) => ({ name: x.name, list: x.l ? chf(x.l) : '', disc: x.l && x.l !== x.p ? chf(x.l - x.p) : '–', price: chf(x.p) })),
       total: chf(total),

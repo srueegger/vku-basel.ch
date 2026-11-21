@@ -2,9 +2,8 @@
 
 `vku-basel.ch/partner`: Partnerseite mit Interessenformular (SQLite) und
 passwortgeschütztem Excel-Export unter `/partner/export/`. `vku-basel.ch/` ist
-bewusst eine leere Seite. Unter `/vorschau/` liegt der statische Klick-Prototyp
-der neuen Website (Export aus Claude Design, siehe `public/vorschau/LIESMICH.txt`),
-öffentlich, aber mit `X-Robots-Tag: noindex`. Reines PHP 8.3, ohne Framework und ohne Composer.
+bewusst eine leere Seite. Dazu kommt der statische
+Klick-Prototyp der neuen Website (siehe unten). Reines PHP 8.3, ohne Framework und ohne Composer.
 
 ## Lokal
 
@@ -27,7 +26,7 @@ bash scripts/setup-local.sh
 
 - Seite: https://vku-basel.ddev.site/partner/
 - Export: https://vku-basel.ddev.site/partner/export/
-- Vorschau: https://vku-basel.ddev.site/vorschau/
+- Prototyp: https://vku-basel.ddev.site/<pfad>/ (nach `php scripts/build-prototyp.php`)
 - Daten: `data/partner.sqlite`
 
 ## Tests
@@ -62,3 +61,20 @@ Auf dem Server:
 | Code (`src/`) | `~/vku-basel-app/src/` |
 | Daten (SQLite, Secret) | `~/vku-basel-app/data/` |
 | Passwortdatei | `~/vku-basel-app/.htpasswd` |
+
+## Klick-Prototyp
+
+Quelle in `prototyp/` (Export aus Claude Design, siehe `prototyp/LIESMICH.txt`),
+wird nicht direkt ausgeliefert. Die Partnerinnen stehen nur in
+`prototyp/partner.json`. `prototyp/versionen.json` legt fest, welche Version unter
+welchem Pfad direkt unter `vku-basel.ch/` liegt und welche Partnerinnen sie zeigt.
+So sieht jede Partnerin nur sich selbst, auch nicht im Quelltext oder bei den
+Bildern.
+
+```bash
+php scripts/build-prototyp.php
+```
+
+Erzeugt `public/<pfad>/` (nicht im Repo, mit `X-Robots-Tag: noindex`). `deploy.sh`
+baut automatisch. Pfad ändern oder Version entfernen: `versionen.json` anpassen,
+der nächste Deploy entfernt alte Pfade vom Server.

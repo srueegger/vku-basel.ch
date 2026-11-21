@@ -61,7 +61,7 @@
 <div style="display: flex; flex-direction: column; gap: 14px;">
 <div style="display: flex; gap: 16px; align-items: center;">
 <button class="signbtn" type="button" onClick="{{horn}}" aria-label="Postauto-Signal antippen"><img src="assets/img/vk4-05.png" alt="" style="width: 88px; height: 88px;"></button>
-<p class="rot" style="margin: 0; font-size: 36px; font-weight: 700; line-height: 1.1;">VKU ab CHF 69.95</p>
+<p class="rot" style="margin: 0; font-size: 36px; font-weight: 700; line-height: 1.1;">VKU ab CHF {{abPreis}}</p>
 </div>
 <p style="margin: 0; text-align: center;">Buche heute den VKU zusammen mit einem Vorbereitungskurs für deine Theorieprüfung und/oder Fahrstunden und profitiere von unschlagbaren Preisreduktionen.</p>
 <sc-if value="{{explain}}" hint-placeholder-val="{{false}}">
@@ -76,7 +76,7 @@
 <button type="button" class="ww ww-weiss" onClick="{{toggleExplain}}">{{explainLabel}}</button>
 <a class="ww ww-blau" href="#partner">Fahrlehrer &amp; Abos</a>
 <a class="ww ww-weiss" href="theorie-kursdaten.html">Theorie Vorbereitung</a>
-<a class="ww ww-orange" href="#doris">Kombi des Monats</a>
+<a class="ww ww-orange" href="#{{monatId}}">Kombi des Monats</a>
 <a class="ww ww-links" href="buchung-vku.html">Ich will nur den VKU</a>
 </div>
 </div>
@@ -133,6 +133,7 @@
 </template>
 <noscript><p style="padding:24px;font-family:Arial,sans-serif">Für diesen Prototyp bitte JavaScript aktivieren.</p></noscript>
 <script src="assets/js/dc-lite.js"></script>
+<script src="assets/js/partner.js"></script>
 <script src="assets/js/kombi-angebote.js"></script>
 </body>
 </html>

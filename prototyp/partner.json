@@ -1,0 +1,25 @@
+[
+  {
+    "id": "doris",
+    "name": "Doris",
+    "school": "Fahrschule Doris Studer",
+    "region": "Basel-Stadt",
+    "cat": "B",
+    "photo": "foto-doris.jpg",
+    "offers": [
+      { "id": "d5", "lessons": 5, "min": 50, "regular": 56495, "bundle": 52495, "vku": 9495 },
+      { "id": "d10", "lessons": 10, "min": 55, "regular": 101495, "bundle": 92495, "vku": 6995 }
+    ]
+  },
+  {
+    "id": "gaby",
+    "name": "Gaby",
+    "school": "Step by Step",
+    "region": "Region Zuzgen",
+    "cat": "B",
+    "photo": "foto-gaby.jpg",
+    "offers": [
+      { "id": "g5", "lessons": 5, "min": 50, "regular": 69895, "bundle": 47995, "vku": 9995 }
+    ]
+  }
+]

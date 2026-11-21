@@ -1,16 +1,11 @@
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { type: 'value', amount: 100, free: '', custom: false, partner: 'doris', offer: 'd5', msg: 'Alles Gute zum 18. Geburtstag!' }; }
+  constructor(props) { super(props); this.state = { type: 'value', amount: 100, free: '', custom: false, partner: '', offer: '', msg: 'Alles Gute zum 18. Geburtstag!' }; }
   renderVals() {
     const s = this.state;
     const pill = (on) => 'pill' + (on ? ' on' : '');
     const amt = s.custom && s.free !== '' ? Math.max(20, Number(s.free) || 20) : s.amount;
     const chf = (r) => (r / 100).toFixed(2);
-    const P = [
-      { id: 'doris', name: 'Doris', school: 'Fahrschule Doris Studer', region: 'Basel-Stadt', photo: 'assets/img/foto-doris.jpg',
-        offers: [{ id: 'd5', lessons: 5, min: 50, regular: 56495, bundle: 52495, vku: 9495 }, { id: 'd10', lessons: 10, min: 55, regular: 101495, bundle: 92495, vku: 6995 }] },
-      { id: 'gaby', name: 'Gaby', school: 'Step by Step', region: 'Region Zuzgen', photo: 'assets/img/foto-gaby.jpg',
-        offers: [{ id: 'g5', lessons: 5, min: 50, regular: 69895, bundle: 47995, vku: 9995 }] }
-    ];
+    const P = VKU.partner;
     const cp = P.find((p) => p.id === s.partner) || P[0];
     const co = cp.offers.find((o) => o.id === s.offer) || cp.offers[0];
     const price = s.type === 'value' ? amt.toFixed(2) : (s.type === 'vku' ? '114.95' : (s.type === 'combo' ? '128.00' : chf(co.bundle)));
