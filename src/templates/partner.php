@@ -65,6 +65,13 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
       <h2 id="vorteile-title">Was du davon hast</h2>
       <ul class="vorteile-liste">
         <li class="vorteil">
+          <img src="/assets/img/icon-kundschaft.png" alt="" width="60" height="60">
+          <div class="vorteil-text">
+            <h3>Mehr Kundschaft ohne Mehraufwand</h3>
+            <p>Das Kombiangebot aus VKU und Fahrstundenabo wird durch VKU-Basel beworben, ohne Mehrkosten für dich.</p>
+          </div>
+        </li>
+        <li class="vorteil">
           <img src="/assets/img/icon-kosten.png" alt="" width="60" height="60">
           <div class="vorteil-text">
             <h3>Keine Kosten ohne Kundschaft</h3>
@@ -72,17 +79,10 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
           </div>
         </li>
         <li class="vorteil">
-          <img src="/assets/img/icon-kundschaft.png" alt="" width="60" height="60">
-          <div class="vorteil-text">
-            <h3>Mehr Kundschaft ohne Mehraufwand</h3>
-            <p>Das Kombiangebot aus VKU und Fahrstundenabo wird online und offline beworben, ohne Mehrkosten für dich. Dazu kommt ein Vermittlungsprogramm für Neukundinnen und Neukunden.</p>
-          </div>
-        </li>
-        <li class="vorteil">
           <img src="/assets/img/icon-fair.png" alt="" width="60" height="60">
           <div class="vorteil-text">
-            <h3>Fair und flexibel</h3>
-            <p>Die Preisreduktion für die Kombiangebote teilen sich VKU-Basel und deine Fahrschule. Nach sechs Monaten entscheidest du, ob du verlängerst, die Stufe wechselst oder aufhörst.</p>
+            <h3>Fair durch Kostenbeteiligung</h3>
+            <p>An der Preisreduktion für die Kombiangebote beteiligt sich auch VKU-Basel. Dazu kommt ein Vermittlungsprogramm für Neukundinnen und Neukunden.</p>
           </div>
         </li>
       </ul>
@@ -110,7 +110,7 @@ $errorIcon = '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
 <?php else: ?>
                 <li>Du bekommst eine persönliche Rückmeldung per E-Mail oder telefonisch.</li>
 <?php endif; ?>
-                <li>Im persönlichen Gespräch klären wir alle Details und welche Partnerstufe für dich passt.</li>
+                <li>Im persönlichen Gespräch klären wir alle Details der Zusammenarbeit.</li>
               </ol>
             </div>
             <p class="danke-fragen">Fragen vorab? Schreib an <a href="mailto:info@reinis-fahrschule.ch">info@reinis-fahrschule.ch</a>.</p>
